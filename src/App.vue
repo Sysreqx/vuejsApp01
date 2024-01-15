@@ -2,33 +2,35 @@
   export default {
     data() {
       return {
-        likes: 0,
-        dislikes: 5,
+        posts: [
+          {id: 1, title: "JavaScript 1", body: "Описание поста 1"},
+          {id: 2, title: "JavaScript 2", body: "Описание поста 2"},
+          {id: 3, title: "JavaScript 3", body: "Описание поста 3"},
+        ]
       }
     },
-    methods: {
-      addLike() {
-        this.likes += 1;
-      },
-      addDislike() {
-        this.dislikes += 1;
-      }
-    }
   }
 </script>
 
 <template>
   <div>
-    <div>Количество лайков <strong>{{ likes }}</strong></div>
-    <div>Количество лайков <strong>{{ dislikes }}</strong></div>
-
-    <br>
-
-    <button @click="addLike">like</button>
-    <button v-on:click="addDislike">dislike</button>
+    <div class="post" v-for="post in posts">
+        <div><strong>Название:</strong> {{ post.title }}</div>
+        <div><strong>Описание:</strong> {{ post.body }}</div>
+    </div>
   </div>
 </template>
 
-<style scoped>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
+  .post {
+    margin-top: 15px;
+    padding: 15px;
+    border: 2px solid teal;
+  }
 </style>
