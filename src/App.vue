@@ -3,6 +3,10 @@
   import PostList from "./components/PostList.vue";
 
   export default {
+    components: {
+      PostList,
+      PostForm,
+    },
     data() {
       return {
         posts: [
@@ -36,9 +40,8 @@
 
 <template>
   <div class="app">
-
-
-
+    <post-form></post-form>
+    <post-list :posts="posts"></post-list>
   </div>
 </template>
 
